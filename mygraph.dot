@@ -1,18 +1,22 @@
 digraph G {
-  node [shape=box];
+    node [shape=box];
 
-  start [label="Start", shape=circle];
-  input [label="Input scores and treeDepth", shape=box];
-  init_vars [label="scores = [3, 5, 2, 9, 12, 5, 23, 23]", shape=box];
-  init_vars2 [label="treeDepth = math.log(len(scores), 2)", shape=box];
-  minimax [label="Call minimax(0, 0, True, scores, treeDepth)", shape=box];
-  print [label="Print result", shape=box];
-  stop [label="Stop", shape=circle];
+    start [label="Start", shape=circle];
+    input [label="Input x", shape=box];
+    check_positive [label="x > 0?", shape=diamond];
+    positive_branch [label="x + func(x-1)", shape=box];
+    call_func [label="Call func(x-1)", shape=box];
+    negative_branch [label="Return 0", shape=box];
+    return [label="Return result", shape=box];
+    stop [label="Stop", shape=circle];
 
-  start -> input;
-  input -> init_vars;
-  input -> init_vars2;
-  init_vars2 -> minimax;
-  minimax -> print;
-  print -> stop;
+    start -> input;
+    input -> check_positive;
+    check_positive -> positive_branch [label="True"];
+    check_positive -> negative_branch [label="False"];
+    positive_branch -> call_func;
+    call_func -> positive_branch;
+    positive_branch -> return;
+    negative_branch -> return;
+    return -> stop;
 }

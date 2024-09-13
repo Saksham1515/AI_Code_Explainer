@@ -195,6 +195,10 @@ if st.button("Show flowchart"):
             for line in lines:
                 if line.strip('\n') != "```":
                     fw.write(line)
+                elif line.strip('\n') != "###":
+                    fw.write(line)
+                elif line.strip('\n') != "dot code:":
+                    fw.write(line)
 
     # Read the DOT file
     dot_graph = graphviz.Source.from_file('mygraph.dot')
