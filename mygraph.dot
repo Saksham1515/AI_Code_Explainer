@@ -3,20 +3,21 @@ digraph G {
 
     start [label="Start", shape=circle];
     input [label="Input x", shape=box];
-    check_positive [label="x > 0?", shape=diamond];
-    positive_branch [label="x + func(x-1)", shape=box];
-    call_func [label="Call func(x-1)", shape=box];
-    negative_branch [label="Return 0", shape=box];
-    return [label="Return result", shape=box];
-    stop [label="Stop", shape=circle];
+    check_x [label="x > 0?", shape=diamond];
+    branch_positive [label="True", shape=box];
+    positive_recursion [label="y = x + func(x-1)", shape=box];
+    positive_end [label="Return x", shape=box];
+    branch_negative [label="False", shape=box];
+    negative_return [label="Return 0", shape=box];
+    end [label="End", shape=circle];
 
     start -> input;
-    input -> check_positive;
-    check_positive -> positive_branch [label="True"];
-    check_positive -> negative_branch [label="False"];
-    positive_branch -> call_func;
-    call_func -> positive_branch;
-    positive_branch -> return;
-    negative_branch -> return;
-    return -> stop;
+    input -> check_x;
+    check_x -> branch_positive [label="True"];
+    branch_positive -> positive_recursion;
+    positive_recursion -> positive_end;
+    positive_end -> end;
+    check_x -> branch_negative [label="False"];
+    branch_negative -> negative_return;
+    negative_return -> end;
 }
