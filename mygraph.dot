@@ -1,0 +1,18 @@
+digraph G {
+  node [shape=box];
+
+  start [label="Start", shape=circle];
+  input [label="Input scores and treeDepth", shape=box];
+  init_vars [label="scores = [3, 5, 2, 9, 12, 5, 23, 23]", shape=box];
+  init_vars2 [label="treeDepth = math.log(len(scores), 2)", shape=box];
+  minimax [label="Call minimax(0, 0, True, scores, treeDepth)", shape=box];
+  print [label="Print result", shape=box];
+  stop [label="Stop", shape=circle];
+
+  start -> input;
+  input -> init_vars;
+  input -> init_vars2;
+  init_vars2 -> minimax;
+  minimax -> print;
+  print -> stop;
+}
