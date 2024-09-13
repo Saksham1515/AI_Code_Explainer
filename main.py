@@ -1,6 +1,5 @@
 import textwrap
-from IPython.display import display
-from IPython.display import Markdown
+# from IPython.display import Markdown
 import google.generativeai as genai
 import os
 import streamlit as st
