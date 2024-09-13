@@ -1,23 +1,16 @@
 digraph G {
     node [shape=box];
-
+    
     start [label="Start", shape=circle];
-    input [label="Input x", shape=box];
-    check_x [label="x > 0?", shape=diamond];
-    branch_positive [label="True", shape=box];
-    positive_recursion [label="y = x + func(x-1)", shape=box];
-    positive_end [label="Return x", shape=box];
-    branch_negative [label="False", shape=box];
-    negative_return [label="Return 0", shape=box];
+    a [label="a = 5", shape=box];
+    b [label="b = 5", shape=box];
+    add [label="c = a + b", shape=box];
+    print [label="Print c", shape=box];
     end [label="End", shape=circle];
-
-    start -> input;
-    input -> check_x;
-    check_x -> branch_positive [label="True"];
-    branch_positive -> positive_recursion;
-    positive_recursion -> positive_end;
-    positive_end -> end;
-    check_x -> branch_negative [label="False"];
-    branch_negative -> negative_return;
-    negative_return -> end;
+    
+    start -> a;
+    a -> b;
+    b -> add;
+    add -> print;
+    print -> end;
 }
