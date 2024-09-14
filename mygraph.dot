@@ -1,16 +1,27 @@
 digraph G {
-    node [shape=box];
-    
-    start [label="Start", shape=circle];
-    a [label="a = 5", shape=box];
-    b [label="b = 5", shape=box];
-    add [label="c = a + b", shape=box];
-    print [label="Print c", shape=box];
-    end [label="End", shape=circle];
-    
-    start -> a;
-    a -> b;
-    b -> add;
-    add -> print;
-    print -> end;
+        node [shape=box];
+
+        start [label="Start", shape=circle];
+        input [label="Input Array", shape=box];
+        outer_loop [label="For n in range(len(arr) - 1, 0, -1)", shape=box];
+        inner_loop [label="For i in range(n)", shape=box];
+        comparison [label="arr[i] > arr[i + 1]?", shape=diamond];
+        swap [label="Swap arr[i] and arr[i + 1]", shape=box];
+        end_inner_loop [label="End Inner Loop", shape=box];
+        end_outer_loop [label="End Outer Loop", shape=box];
+        return [label="Return Sorted Array", shape=box];
+        stop [label="Stop", shape=circle];
+
+        start -> input;
+        input -> outer_loop;
+        outer_loop -> inner_loop;
+        inner_loop -> comparison;
+        comparison -> swap [label="True"];
+        swap -> end_inner_loop;
+        comparison -> end_inner_loop [label="False"];
+        end_inner_loop -> inner_loop [label="Continue Inner Loop"];
+        end_inner_loop -> end_outer_loop [label="End Inner Loop"];
+        end_outer_loop -> outer_loop [label="Continue Outer Loop"];
+        outer_loop -> return [label="End Outer Loop"];
+        return -> stop;
 }
