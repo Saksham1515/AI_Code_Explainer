@@ -184,8 +184,10 @@ if st.button("Show flowchart"):
         """
     completions = model.generate_content(prompt)
 
-    dot_file_path = os.path.join("flowchart","mygraph.dot")
-    os.makedirs(os.path.dirname(dot_file_path),exist_ok=True)
+    cwd = os.getcwd()
+    dot_file_path:str = os.path.join(cwd,"flowchart\mygraph.dot")
+    st.code(dot_file_path)
+
     with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
         f.write(completions.text)
@@ -198,9 +200,12 @@ if st.button("Show flowchart"):
                     fw.write(line)
             
     # Read the DOT file
-    dot_graph = graphviz.Source.from_file('flowchart/mygraph.dot')
-    # dot_graph.render("flowchart/img", format='png')
-    st.title(os.path.dirname("flowchart"))
-    # st.image("flowchart/img.png", caption="Flowchart")
-    # os.remove("/flowchart/img")
-    # os.remove("/flowchart/img.png")
+    dot_graph = graphviz.Source.from_file(dot_file_path)
+    png_path:str = os.path.join(cwd,"flowchart\img.png")
+    img_path:str = os.path.join(cwd,"flowchart\img")
+    dot_graph.render(img_path, format='png')
+    st.image(png_path, caption="Flowchart")
+    st.code(img_path)
+    st.code(png_path)
+    os.remove(img_path)
+    os.remove(png_path)
