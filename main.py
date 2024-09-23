@@ -17,7 +17,7 @@ Code_Snippet = st.text_area("Enter your code")
 
 if st.button("Show Code"):
     st.code(Code_Snippet)
-    st.text(os.getcwd())
+    st.text(str(os.getcwd()))
 
 if st.button("Show Explanation"):
     code_example = f"""
