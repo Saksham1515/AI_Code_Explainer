@@ -1,6 +1,0 @@
-```dot 
-digraph G {
-    node [shape=box];
-    init_a [label="a = 66"];
-    init_b [label="b = 7"];
-}
