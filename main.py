@@ -194,6 +194,7 @@ if st.button("Show flowchart"):
 
     with open(dot_file_path, 'r') as fr:
         lines = fr.readlines()
+        st.code(lines)
         with open(dot_file_path, 'w') as fw:
             for line in lines:
                 if line.strip('\n') != "```":
