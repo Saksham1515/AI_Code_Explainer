@@ -198,8 +198,8 @@ if st.button("Show flowchart"):
                     fw.write(line)
             
     # Read the DOT file
-    dot_graph = graphviz.Source.from_file('flowchart/mygraph.dot')
-    dot_graph.render("flowchart/img", format='png')
-    st.image("flowchart/img.png", caption="Flowchart")
-    os.remove("flowchart/img")
-    os.remove("flowchart/img.png")
+    dot_graph = graphviz.Source.from_file('/flowchart/mygraph.dot')
+    dot_graph.render("/flowchart/img", format='png')
+    st.image("/flowchart/img.png", caption="Flowchart")
+    os.remove("/flowchart/img")
+    os.remove("/flowchart/img.png")
