@@ -17,8 +17,6 @@ Code_Snippet = st.text_area("Enter your code")
 
 if st.button("Show Code"):
     st.code(Code_Snippet)
-    st.code(str(os.getcwd()))
-    st.code("hiiii")
 
 if st.button("Show Explanation"):
     code_example = f"""
@@ -186,20 +184,22 @@ if st.button("Show flowchart"):
         """
     completions = model.generate_content(prompt)
 
-    with open("mygraph.dot", "w") as f:
+    dot_file_path = os.path.join("flowchart","mygraph.dot")
+    os.makedirs(os.path.dirname(dot_file_path),exist_ok=True)
+    with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
         f.write(completions.text)
 
-    with open('mygraph.dot', 'r') as fr:
+    with open(dot_file_path, 'r') as fr:
         lines = fr.readlines()
-        with open('mygraph.dot', 'w') as fw:
+        with open(dot_file_path, 'w') as fw:
             for line in lines:
                 if line.strip('\n') != "```":
                     fw.write(line)
             
     # Read the DOT file
-    dot_graph = graphviz.Source.from_file('mygraph.dot')
-
-    # Render the graph
-    dot_graph.render('output_image', format='png')
-    st.image("output_image.png", caption="Flowchart")
+    dot_graph = graphviz.Source.from_file('flowchart/mygraph.dot')
+    dot_graph.render("flowchart/img", format='png')
+    st.image("flowchart/img.png", caption="Flowchart")
+    os.remove("flowchart/img")
+    os.remove("flowchart/img.png")
