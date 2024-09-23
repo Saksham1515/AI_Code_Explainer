@@ -5,7 +5,6 @@ import os
 import streamlit as st
 import graphviz
 import os
-st.text(os.getcwd())
 os.environ['GOOGLE_APU_KEY']="AIzaSyBJtToNkzQeaPV1-3NT_6iHsRNFgcYR7y8"
 genai.configure(api_key=os.environ['GOOGLE_APU_KEY'])
 model = genai.GenerativeModel('gemini-pro')
@@ -18,6 +17,7 @@ Code_Snippet = st.text_area("Enter your code")
 
 if st.button("Show Code"):
     st.code(Code_Snippet)
+    st.text(os.getcwd())
 
 if st.button("Show Explanation"):
     code_example = f"""
