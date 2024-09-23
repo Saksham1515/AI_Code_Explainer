@@ -1,4 +1,6 @@
 digraph G {
-    a [label="a = 99", shape=box];
-    b [label="b = 88", shape=box];
+    node[shape=box];
+    
+    a [label="a=99"];
+    b [label="b=87"];
 }
