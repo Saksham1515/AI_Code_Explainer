@@ -194,12 +194,12 @@ if st.button("Show flowchart"):
 
     with open(dot_file_path, 'r') as fr:
         lines = fr.readlines()
-        st.code(lines)
         with open(dot_file_path, 'w') as fw:
             for line in lines:
                 if line.strip('\n') != "```":
                     fw.write(line)
-            
+        st.subheader(lines)
+
     # Read the DOT file
     dot_graph = graphviz.Source.from_file(dot_file_path)
     png_path:str = os.path.join(cwd,"flowchart/img.png")
@@ -209,4 +209,5 @@ if st.button("Show flowchart"):
     st.code(img_path)
     st.code(png_path)
     os.remove(img_path)
+    os.remove(dot_file_path)
     os.remove(png_path)
