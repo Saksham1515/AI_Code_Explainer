@@ -1,6 +1,0 @@
-digraph G {
-    node[shape=box];
-    
-    a [label="a=99"];
-    b [label="b=87"];
-}
