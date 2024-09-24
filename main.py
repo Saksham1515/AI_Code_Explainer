@@ -191,8 +191,6 @@ if st.button("Show flowchart"):
     cwd = os.getcwd()
     dot_file_path:str = os.path.join(cwd,"flowchart/mygraph.dot")
     # st.code(dot_file_path)
-    os.remove(dot_file_path)
-    os.mknod(dot_file_path)
 
     with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
@@ -204,7 +202,7 @@ if st.button("Show flowchart"):
             for line in lines:
                 if line.strip('\n') != "```":
                     fw.write(line)
-        # st.subheader(lines)
+        st.subheader(lines)
 
     # Read the DOT file
     dot_graph = graphviz.Source.from_file(dot_file_path)
