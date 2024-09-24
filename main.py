@@ -184,10 +184,10 @@ if st.button("Show flowchart"):
         """
     completions = model.generate_content(prompt)
 
-    cwd = os.getcwd()
-    dot_file_path:str = os.path.join(cwd,"flowchart/mygraph.dot")
-    os.remove(dot_file_path)
-    
+    # cwd = os.getcwd()
+    # dot_file_path:str = os.path.join(cwd,"flowchart/mygraph.dot")
+    # os.remove(dot_file_path)
+
     cwd = os.getcwd()
     dot_file_path:str = os.path.join(cwd,"flowchart/mygraph.dot")
     # st.code(dot_file_path)
