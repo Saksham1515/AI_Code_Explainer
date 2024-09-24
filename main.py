@@ -202,7 +202,7 @@ if st.button("Show flowchart"):
             for line in lines:
                 if line.strip('\n') != "```":
                     fw.write(line)
-        st.subheader(lines)
+        print(lines)
 
     # Read the DOT file
     dot_graph = graphviz.Source.from_file(dot_file_path)
