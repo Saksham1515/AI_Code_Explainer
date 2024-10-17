@@ -8,7 +8,7 @@ import json
 from dotenv import load_dotenv
 load_dotenv()
 
-os.environ['GOOGLE_APU_KEY']=os.getenv("api_key")
+os.environ['GOOGLE_APU_KEY']=str(os.getenv("api_key"))
 genai.configure(api_key=os.environ['GOOGLE_APU_KEY'])
 model = genai.GenerativeModel('gemini-pro')
 def to_markdown(text):
