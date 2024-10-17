@@ -7,7 +7,7 @@ import graphviz
 import json
 from dotenv import load_dotenv
 load_dotenv()
-print(str(os.getenv("api_key")))
+st.title(str(os.getenv("api_key")))
 os.environ['GOOGLE_APU_KEY']=str(os.getenv("api_key"))
 genai.configure(api_key=os.environ['GOOGLE_APU_KEY'])
 model = genai.GenerativeModel('gemini-pro')
