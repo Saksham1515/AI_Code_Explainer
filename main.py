@@ -215,7 +215,7 @@ if st.button("Show flowchart"):
     # dot_graph.render(img_path, format='png')
     # st.image(png_path, caption="Flowchart")
     
-    d = os.path.exists("mygraph.dot")
+    d = os.path.exists(dot_file_path)
     i = os.path.exists(img_path)
     p = os.path.exists(png_path)
     st.code(d)
