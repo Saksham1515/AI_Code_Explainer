@@ -191,8 +191,10 @@ if st.button("Show flowchart"):
 
     cwd = os.getcwd()
     dot_file_path:str = os.path.join(cwd,r"/flowchart/mygraph.dot")
-    # st.code(dot_file_path)
-
+    st.code(dot_file_path)
+    
+    isExist = os.path.exists(dot_file_path)
+    st.code(isExist)
     with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
         f.write(completions.text)
