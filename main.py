@@ -206,13 +206,13 @@ if st.button("Show flowchart"):
         print(lines)
 
     # Read the DOT file
-    dot_graph = graphviz.Source.from_file(dot_file_path)
+    # dot_graph = graphviz.Source.from_file(dot_file_path)
     png_path:str = r"/mount/src/ai_code_explainer/flowchart/img.png"
     img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
     os.makedirs(os.path.dirname(png_path), exist_ok=True)
     os.makedirs(os.path.dirname(img_path), exist_ok=True)
-    dot_graph.render(img_path, format='png')
-    st.image(png_path, caption="Flowchart")
+    # dot_graph.render(img_path, format='png')
+    # st.image(png_path, caption="Flowchart")
     
     d = os.path.exists(dot_file_path)
     i = os.path.exists(img_path)
