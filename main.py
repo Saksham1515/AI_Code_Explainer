@@ -191,31 +191,31 @@ if st.button("Show flowchart"):
 
     cwd = os.getcwd()
     dot_file_path:str = os.path.join(cwd,"/mount/src/ai_code_explainer/flowchart/mygraph.dot")
-    st.code(cwd)
+    st.code(dot_file_path)
 
-    
+    s = open(dot_file_path,"w")
+    isExist = os.path.exists(dot_file_path)
+    st.code(isExist)
     with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
-        isExist = os.path.exists(dot_file_path)
-        st.code(isExist)
         f.write(completions.text)
 
-    with open(dot_file_path, 'r') as fr:
-        lines = fr.readlines()
-        with open(dot_file_path, 'w') as fw:
-            for line in lines:
-                if line.strip('\n') != "```":
-                    fw.write(line)
-        print(lines)
+    # with open(dot_file_path, 'r') as fr:
+    #     lines = fr.readlines()
+    #     with open(dot_file_path, 'w') as fw:
+    #         for line in lines:
+    #             if line.strip('\n') != "```":
+    #                 fw.write(line)
+    #     print(lines)
 
-    # Read the DOT file
-    dot_graph = graphviz.Source.from_file(dot_file_path)
-    png_path:str = os.path.join(cwd,r"img.png")
-    img_path:str = os.path.join(cwd,r"img")
-    dot_graph.render(img_path, format='png')
-    st.image(png_path, caption="Flowchart")
-    # st.code(img_path)
-    # st.code(png_path)
-    os.remove(img_path)
-    os.remove(dot_file_path)
-    os.remove(png_path)
+    # # Read the DOT file
+    # dot_graph = graphviz.Source.from_file(dot_file_path)
+    # png_path:str = os.path.join(cwd,r"img.png")
+    # img_path:str = os.path.join(cwd,r"img")
+    # dot_graph.render(img_path, format='png')
+    # st.image(png_path, caption="Flowchart")
+    # # st.code(img_path)
+    # # st.code(png_path)
+    # os.remove(img_path)
+    # os.remove(dot_file_path)
+    # os.remove(png_path)
