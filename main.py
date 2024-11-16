@@ -192,8 +192,6 @@ if st.button("Show flowchart"):
     cwd = os.getcwd()
     dot_file_path:str = r"/mount/src/ai_code_explainer/flowchart/mygraph.dot"
     os.makedirs(os.path.dirname(dot_file_path), exist_ok=True)
-    isExist = os.path.exists(dot_file_path)
-    st.code(isExist)
 
     with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
@@ -215,6 +213,11 @@ if st.button("Show flowchart"):
     os.makedirs(os.path.dirname(dot_file_path), exist_ok=True)
     dot_graph.render(img_path, format='png')
     st.image(png_path, caption="Flowchart")
+    
+    d = os.path.exists(dot_file_path)
+    i = os.path.exists(img_path)
+    p = os.path.exists(png_path)
+    st.code(d,i,p)
     # st.code(img_path)
     # st.code(png_path)
     os.remove(img_path)
