@@ -190,8 +190,7 @@ if st.button("Show flowchart"):
     # os.remove(dot_file_path)
 
     cwd = os.getcwd()
-    dot_file_path:str = os.path.join(cwd,"/flowchart/mygraph.dot")
-    st.code(cwd)
+    dot_file_path:str = r"/mount/src/ai_code_explainer/flowchart/mygraph.dot"
 
     s = open(dot_file_path,"w")
     isExist = os.path.exists(dot_file_path)
