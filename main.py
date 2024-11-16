@@ -197,9 +197,9 @@ if st.button("Show flowchart"):
     isExist = os.path.exists(dot_file_path)
     st.code(isExist)
 
-    with open(dot_file_path, "w") as f:
-        # Write the DOT graph definition
-        f.write(completions.text)
+    # with open(dot_file_path, "w") as f:
+    #     # Write the DOT graph definition
+    #     f.write(completions.text)
 
     # with open(dot_file_path, 'r') as fr:
     #     lines = fr.readlines()
