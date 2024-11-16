@@ -203,8 +203,7 @@ if st.button("Show flowchart"):
         with open(dot_file_path, 'w') as fw:
             for line in lines:
                 if line.strip('\n') != "```":
-                    fw.write(line)
-        print(lines)   
+                    fw.write(line)  
 
     # Read the DOT file
     dot_graph = graphviz.Source.from_file(dot_file_path)
@@ -214,7 +213,7 @@ if st.button("Show flowchart"):
     # os.makedirs(os.path.dirname(png_path), exist_ok=True)
     # os.makedirs(os.path.dirname(img_path), exist_ok=True)
     dot_graph.render(img_path, format='png')
-    # st.image(png_path, caption="Flowchart")
+    st.image(png_path, caption="Flowchart")
     
     # d = os.path.exists(dot_file_path)
     # i = os.path.exists(img_path)
@@ -226,6 +225,6 @@ if st.button("Show flowchart"):
     # st.code(png_path)
     st.code(img_path)
     st.code(png_path)
-    os.remove(img_path)
+    # os.remove(img_path)
     os.remove(dot_file_path)
     os.remove(png_path)

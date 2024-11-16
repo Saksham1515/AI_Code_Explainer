@@ -1,0 +1,16 @@
+digraph G {
+    node [shape=box];
+
+    start [label="Start", shape=circle];
+    init_a [label="a = 5", shape=box];
+    init_b [label="b = 5", shape=box];
+    add_a_b [label="c = a + b", shape=box];
+    print_c [label="Print c", shape=box];
+    stop [label="Stop", shape=circle];
+
+    start -> init_a;
+    init_a -> init_b;
+    init_b -> add_a_b;
+    add_a_b -> print_c;
+    print_c -> stop;
+}
