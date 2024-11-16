@@ -203,15 +203,11 @@ if st.button("Show flowchart"):
             for line in lines:
                 if line.strip('\n') != "```":
                     fw.write(line)
-        print(lines)
-    with open(dot_file_path, 'r') as fr:
-        lines = fr.readlines()
-        for i in  lines:
-            st.code(i)
-    
+        print(lines)   
 
     # Read the DOT file
-    # dot_graph = graphviz.Source.from_file(dot_file_path)
+    dot_graph = graphviz.Source.from_file(dot_file_path)
+    
     # png_path:str = r"/mount/src/ai_code_explainer/flowchart/img.png"
     # img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
     # os.makedirs(os.path.dirname(png_path), exist_ok=True)
@@ -230,3 +226,4 @@ if st.button("Show flowchart"):
     # os.remove(img_path)
     os.remove(dot_file_path)
     # os.remove(png_path)
+    st.code(dot_graph)
