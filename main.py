@@ -193,10 +193,11 @@ if st.button("Show flowchart"):
     dot_file_path:str = os.path.join(cwd,"/mount/src/ai_code_explainer/flowchart/mygraph.dot")
     st.code(cwd)
 
-    isExist = os.path.exists(dot_file_path)
-    st.code(isExist)
+    
     with open(dot_file_path, "w") as f:
         # Write the DOT graph definition
+        isExist = os.path.exists(dot_file_path)
+        st.code(isExist)
         f.write(completions.text)
 
     with open(dot_file_path, 'r') as fr:
