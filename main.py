@@ -210,7 +210,7 @@ if st.button("Show flowchart"):
     png_path:str = r"/mount/src/ai_code_explainer/flowchart/img.png"
     img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
     os.makedirs(os.path.dirname(png_path), exist_ok=True)
-    os.makedirs(os.path.dirname(img_pathpath), exist_ok=True)
+    os.makedirs(os.path.dirname(img_path), exist_ok=True)
     dot_graph.render(img_path, format='png')
     st.image(png_path, caption="Flowchart")
     
