@@ -193,9 +193,9 @@ if st.button("Show flowchart"):
     dot_file_path:str = r"/mount/src/ai_code_explainer/flowchart/mygraph.dot"
     os.makedirs(os.path.dirname(dot_file_path), exist_ok=True)
 
-    with open(dot_file_path, "w") as f:
-        # Write the DOT graph definition
-        f.write(completions.text)
+    # with open(dot_file_path, "w") as f:
+    #     # Write the DOT graph definition
+    #     f.write(completions.text)
 
     with open(dot_file_path, 'r') as fr:
         lines = fr.readlines()
