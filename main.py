@@ -184,9 +184,10 @@ if st.button("Show flowchart"):
         ```
         """
     completions = model.generate_content(prompt)
-
     cwd = os.getcwd()
     dot_file_path:str = os.path.join(cwd,"mygraph.dot")
+    img_path:str = os.path.join(cwd,"img")
+    png_path:str = os.path.join(cwd,"img.png")
 
     # cwd = os.getcwd()
     # dot_file_path:str = r"/mount/src/ai_code_explainer/flowchart/mygraph.dot"
@@ -212,7 +213,7 @@ if st.button("Show flowchart"):
     # img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
     # os.makedirs(os.path.dirname(png_path), exist_ok=True)
     # os.makedirs(os.path.dirname(img_path), exist_ok=True)
-    # dot_graph.render(img_path, format='png')
+    dot_graph.render(img_path, format='png')
     # st.image(png_path, caption="Flowchart")
     
     # d = os.path.exists(dot_file_path)
@@ -223,7 +224,8 @@ if st.button("Show flowchart"):
     # st.code(p)
     # st.code(img_path)
     # st.code(png_path)
-    # os.remove(img_path)
+    st.code(img_path)
+    st.code(png_path)
+    os.remove(img_path)
     os.remove(dot_file_path)
-    # os.remove(png_path)
-    st.code(dot_graph)
+    os.remove(png_path)
