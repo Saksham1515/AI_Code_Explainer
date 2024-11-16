@@ -185,44 +185,48 @@ if st.button("Show flowchart"):
         """
     completions = model.generate_content(prompt)
 
-    # cwd = os.getcwd()
-    # dot_file_path:str = os.path.join(cwd,"flowchart/mygraph.dot")
-    # os.remove(dot_file_path)
-
     cwd = os.getcwd()
-    dot_file_path:str = r"/mount/src/ai_code_explainer/flowchart/mygraph.dot"
-    os.makedirs(os.path.dirname(dot_file_path), exist_ok=True)
-    st.code(completions)
-    st.code(completions.text)
-    # with open(dot_file_path, "w") as f:
-    #     # Write the DOT graph definition
-    #     f.write(completions.text)
+    dot_file_path:str = os.path.join(cwd,"mygraph.dot")
 
-    # with open(dot_file_path, 'r') as fr:
-    #     lines = fr.readlines()
-    #     with open(dot_file_path, 'w') as fw:
-    #         for line in lines:
-    #             if line.strip('\n') != "```":
-    #                 fw.write(line)
-    #     print(lines)
+    # cwd = os.getcwd()
+    # dot_file_path:str = r"/mount/src/ai_code_explainer/flowchart/mygraph.dot"
+    # os.makedirs(os.path.dirname(dot_file_path), exist_ok=True)
+    # st.code(completions)
+    # st.code(completions.text)
+    with open(dot_file_path, "w") as f:
+        # Write the DOT graph definition
+        f.write(completions.text)
+
+    with open(dot_file_path, 'r') as fr:
+        lines = fr.readlines()
+        with open(dot_file_path, 'w') as fw:
+            for line in lines:
+                if line.strip('\n') != "```":
+                    fw.write(line)
+        print(lines)
+    with open(dot_file_path, 'r') as fr:
+        lines = fr.readlines()
+        for i in  lines:
+            st.code(i)
+    
 
     # Read the DOT file
     # dot_graph = graphviz.Source.from_file(dot_file_path)
-    png_path:str = r"/mount/src/ai_code_explainer/flowchart/img.png"
-    img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
+    # png_path:str = r"/mount/src/ai_code_explainer/flowchart/img.png"
+    # img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
     # os.makedirs(os.path.dirname(png_path), exist_ok=True)
-    os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    # os.makedirs(os.path.dirname(img_path), exist_ok=True)
     # dot_graph.render(img_path, format='png')
     # st.image(png_path, caption="Flowchart")
     
-    d = os.path.exists(dot_file_path)
-    i = os.path.exists(img_path)
-    p = os.path.exists(png_path)
-    st.code(d)
-    st.code(i)
+    # d = os.path.exists(dot_file_path)
+    # i = os.path.exists(img_path)
+    # p = os.path.exists(png_path)
+    # st.code(d)
+    # st.code(i)
     # st.code(p)
     # st.code(img_path)
     # st.code(png_path)
-    os.remove(img_path)
+    # os.remove(img_path)
     os.remove(dot_file_path)
-    os.remove(png_path)
+    # os.remove(png_path)
