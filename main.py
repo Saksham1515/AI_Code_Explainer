@@ -210,10 +210,10 @@ if st.button("Show flowchart"):
     
     # png_path:str = r"/mount/src/ai_code_explainer/flowchart/img.png"
     # img_path:str = r"/mount/src/ai_code_explainer/flowchart/img"
-    # os.makedirs(os.path.dirname(png_path), exist_ok=True)
-    # os.makedirs(os.path.dirname(img_path), exist_ok=True)
-    # dot_graph.render(img_path, format='png')
-    # st.image(png_path, caption="Flowchart")
+    os.makedirs(os.path.dirname(png_path), exist_ok=True)
+    os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    dot_graph.render(img_path, format='png')
+    st.image(png_path, caption="Flowchart")
     
     
     # d = os.path.exists(dot_file_path)
@@ -224,8 +224,8 @@ if st.button("Show flowchart"):
     # st.code(p)
     # st.code(img_path)
     # st.code(png_path)
-    st.code(dot_graph)
-    st.code(png_path)
+    # st.code(dot_graph)
+    # st.code(png_path)
     os.remove(img_path)
     os.remove(dot_file_path)
     os.remove(png_path)
