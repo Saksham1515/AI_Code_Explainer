@@ -3,7 +3,7 @@ import textwrap
 import google.generativeai as genai
 import os
 import streamlit as st
-import graphviz
+# import graphviz
 
 os.environ['GOOGLE_APU_KEY']="AIzaSyBJtToNkzQeaPV1-3NT_6iHsRNFgcYR7y8"
 genai.configure(api_key=os.environ['GOOGLE_APU_KEY'])
