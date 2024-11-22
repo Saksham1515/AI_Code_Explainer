@@ -1,14 +1,10 @@
 import textwrap
 # from IPython.display import Markdown
 import google.generativeai as genai
-# import os
 import streamlit as st
 # import graphviz
 
-# os.environ['GOOGLE_APU_KEY']="AIzaSyBJtToNkzQeaPV1-3NT_6iHsRNFgcYR7y8"
 GOOGLE_API_KEYs= st.secrets.GOOGLE_API_KEY
-# GOOGLE_API_KEY="AIzaSyAiqfdFIRk2eAufqW18mATg0kEk0Qyka3o"
-# st.code(GOOGLE_API_KEYs)
 genai.configure(api_key=GOOGLE_API_KEYs)
 model = genai.GenerativeModel('gemini-pro')
 def to_markdown(text):
