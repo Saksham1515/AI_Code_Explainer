@@ -6,7 +6,7 @@ import streamlit as st
 # import graphviz
 
 # os.environ['GOOGLE_APU_KEY']="AIzaSyBJtToNkzQeaPV1-3NT_6iHsRNFgcYR7y8"
-# GOOGLE_API_KEY= st.secrets("GOOGLE_API_KEY")
+GOOGLE_API_KEY= st.secrets.GOOGLE_API_KEY
 GOOGLE_API_KEY="AIzaSyAiqfdFIRk2eAufqW18mATg0kEk0Qyka3o"
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
